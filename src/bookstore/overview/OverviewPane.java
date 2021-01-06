@@ -21,7 +21,7 @@ public class OverviewPane extends BorderPane {
 
     private OverviewLeftPane getOverviewLeftPane() {
         if (overviewLeftPane == null){
-            overviewLeftPane = new OverviewLeftPane();
+            overviewLeftPane = new OverviewLeftPane(overviewTableView);
         }
         return overviewLeftPane;
     }
