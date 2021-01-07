@@ -16,12 +16,12 @@ public class OverviewPane extends BorderPane {
         this.setLeft(getOverviewLeftPane());
         this.setCenter(getOverviewTableView());
         this.setPrefHeight(400);
-        this.setPrefWidth(300);
+        this.setPrefWidth(500);
     }
 
     private OverviewLeftPane getOverviewLeftPane() {
         if (overviewLeftPane == null){
-            overviewLeftPane = new OverviewLeftPane(overviewTableView);
+            overviewLeftPane = new OverviewLeftPane(getOverviewTableView());
         }
         return overviewLeftPane;
     }
@@ -31,5 +31,9 @@ public class OverviewPane extends BorderPane {
             overviewTableView = new OverviewTableView(DataHandler.INSTANCE.booksAsObservableList());
         }
         return overviewTableView;
+    }
+
+    public void refreshData() {
+        getOverviewTableView().setItems(DataHandler.INSTANCE.booksAsObservableList());
     }
 }
